@@ -5,13 +5,13 @@ const bodyParser = require('body-parser')
 const routes = require('./src/index')
 const morgan = require('morgan')
 
-server.use(bodyParser.urlencoded({ extended : false}))
+server.use(bodyParser.urlencoded({ extended: false }))
 server.use(bodyParser.json())
 server.use(morgan('dev'))
 
-server.use('/', routes )
-server.listen(PORT, ()=>{
-    console.log(`Server berjalan pada port ${PORT}`)
+server.use('/', routes)
+server.listen(PORT, () => {
+  console.log(`Server berjalan pada port ${PORT}`)
 })
 module.exports = server
 // // get all company
@@ -26,13 +26,13 @@ module.exports = server
 // })
 // //get an company
 // server.get('/company/:id', (req, res)=>{
-//     pool.query('SELECT * FROM company WHERE id_company =  ?' ,[req.params.id],(err, rows, fields)=>{ 
+//     pool.query('SELECT * FROM company WHERE id_company =  ?' ,[req.params.id],(err, rows, fields)=>{
 //         if(!err)
 //         res.send(rows)
 //         else
-//         console.log(err);    
+//         console.log(err);
 //     })
-// }) 
+// })
 
 // //add company
 // server.post('/company', (req, res)=>{
@@ -43,10 +43,10 @@ module.exports = server
 //         description : req.body.description,
 //         status : req.body.status
 //     }
-   
+
 //     pool.query('INSERT INTO company set ?', data,(err,result)=>{
 //      if(err)console.log(err)
-//      res.send(result)   
+//      res.send(result)
 //     })
 // })
 
@@ -59,7 +59,7 @@ module.exports = server
 //         console.log(err);
 //     })
 // })
-//delete an company
+// delete an company
 // server.delete('/company/:id', (req, res)=>{
 //     pool.query('DELETE FROM company WHERE id_company = ?', [req.params.id],(err,rows,fields)=> {
 //         if(!err)
@@ -67,8 +67,6 @@ module.exports = server
 //         else
 //         console.log(err);
 
-//     }) 
+//     })
 
 // })
-
- 
