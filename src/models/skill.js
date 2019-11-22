@@ -50,6 +50,22 @@ module.exports = {
     return new Promise((resolve, reject) => {
       database.query('DELETE FROM skill_name where id = ?', id, (err, re))
     })
+  },
+  postDetailSkill: (datas) => {
+    return new Promise((resolve, reject) => {
+      database.query('INSERT INTO skill_detail SET ?', datas, (err, result) => {
+        if (err) reject(new Error(err))
+        resolve(result)
+      })
+    })
+  },
+  putDetailSkill: (datas, id) => {
+    return new Promise((resolve, reject) => {
+      database.query('UPDATE skill_detail SET skill_level = ? WHERE id = ?', [datas, id], (err, result) => {
+        if (err) reject(new Error(err))
+        resolve(result)
+      })
+    })
   }
 
 }

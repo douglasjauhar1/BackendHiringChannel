@@ -59,6 +59,40 @@ module.exports = {
       .catch(err => {
         console.log(err)
       })
+  },
+  postDetailSkill: (req, res) => {
+    const { id_skill, id_engineer, skill_level } = req.body
+    const datas = {
+      id_skill,
+      id_engineer,
+      skill_level
+    }
+    skillModel.postDetailSkill(datas)
+      .then(result => {
+        res.json(result)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  },
+  putDetailSkill: (req, res) => {
+    const id = req.params.id
+ 
+    const {id_skill, id_engineer, skill_level, dateupdate_at } = req.body
+    const datas = {
+      id_skill,
+      id_engineer,
+      skill_level,
+       dateupdate_at: new Date()
+    }
+    console.log(datas)
+    skillModel.putDetailSkill(datas, id)
+      .then(result => {
+      res.send(result)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
 }

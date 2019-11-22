@@ -60,7 +60,7 @@ module.exports = {
         console.log(err)
       })
   },
-  searchEngineer : (req, res) => {
+  searchEngineer: (req, res) => {
     const skill_name = req.query.skill_name
     const name = req.query.name
     const sortParam = req.query.sortParam
