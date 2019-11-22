@@ -4,5 +4,4 @@ const { getLogin } = require('../controller/login')
 Route
   .post('/', getLogin)
 
-
 module.exports = Route
