@@ -5,7 +5,7 @@ Route
 
   .get('/', getCompany.companyPromise)
   .post('/', getCompany.companyPost)
-  .patch('/:id', getCompany.companyPatch)
+  .put('/:id', getCompany.companyPatch)
   .delete('/:id', getCompany.companyDelete)
   .get('/page', getCompany.companyPage)
 

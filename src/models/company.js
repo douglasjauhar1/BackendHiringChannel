@@ -19,7 +19,7 @@ module.exports = {
   },
   companyPatch: (data, id) => {
     return new Promise((resolve, reject) => {
-      database.query('UPDATE company set ? WHERE id_company = ?', [data, id], (err, result) => {
+      database.query('UPDATE company SET ? WHERE company.id_company = ?', [data, id], (err, result) => {
         if (err) reject(new Error(err))
         resolve(result)
       })

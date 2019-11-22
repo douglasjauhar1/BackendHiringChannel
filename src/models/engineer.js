@@ -33,9 +33,9 @@ module.exports = {
       })
     })
   },
-  searchSkill: (skill_name, name) => {
+  searchEngineer: (skill_name, name, sortParam, sortChoose, limit, offset) => {
     return new Promise((resolve, reject) => {
-      database.query(`SELECT * FROM v_engineer WHERE  skill_name LIKE '%${skill_name}%' or name LIKE '%${name}%' order by skill_level DESC`, (err, result) => {
+      database.query(`SELECT * FROM v_engineer WHERE skill_name LIKE '%${skill_name}%' OR name LIKE '%${name}%' ORDER BY ${sortParam} ${sortChoose} LIMIT ${limit} OFFSET ${offset} `, (err, result) => {
         if (err) reject(new Error(err))
         resolve(result)
       })

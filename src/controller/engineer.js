@@ -12,13 +12,13 @@ module.exports = {
       })
   },
   postEngineer: (req, res) => {
-    const { name, description, location, dob, showcase, created_at, updated_at } = req.body
+    const { name, description, location, dob, showcas, created_at, updated_at } = req.body
     const data = {
       name,
       description,
       location,
       dob,
-      showcase,
+      showcas,
       created_at: new Date(),
       updated_at: new Date()
     }
@@ -32,13 +32,13 @@ module.exports = {
   },
   patchEngineer: (req, res) => {
     const id = req.params.id
-    const { name, description, location, dob, showcase, created_at, updated_at } = req.body
+    const { name, description, location, dob, showcas, created_at, updated_at } = req.body
     const data = {
       name,
       description,
       location,
       dob,
-      showcase,
+      showcas,
       created_at,
       updated_at: new Date()
     }
@@ -60,10 +60,14 @@ module.exports = {
         console.log(err)
       })
   },
-  searchSkill: (req, res) => {
-    const skill = req.query.skill_name
+  searchEngineer : (req, res) => {
+    const skill_name = req.query.skill_name
     const name = req.query.name
-    engineerModel.searchSkill(skill, name)
+    const sortParam = req.query.sortParam
+    const sortChoose = req.query.sortChoose
+    const limit = req.query.limit
+    const offset = req.query.offset
+    engineerModel.searchEngineer(skill_name, name, sortParam, sortChoose, limit, offset)
       .then(result => {
         res.json(result)
       })
