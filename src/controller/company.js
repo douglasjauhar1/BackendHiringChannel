@@ -11,10 +11,10 @@ module.exports = {
       })
   },
   companyPost: (req, res) => {
-    const { name, logo, location, description, role_id } = req.body
+    const { name,  location, description, role_id } = req.body
     const data = {
       name,
-      logo,
+      logo : req.file.filename,
       location,
       description,
       role_id

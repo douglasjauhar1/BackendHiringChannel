@@ -9,6 +9,8 @@ module.exports = {
     try {
       const passData = await modelsLogin.getLogin(data.username)
       const result = validate.validateLogin(req, res, data, passData)
+      console.log(result);
+      
       res.send(result)
     } catch (err) {
       console.log(err)
